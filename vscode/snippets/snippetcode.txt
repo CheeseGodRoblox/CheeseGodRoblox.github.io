@@ -54,15 +54,6 @@
 		],
 		"description": "Create basic Module boiler plate"
 	},
-	"Roblox Function": {
-		"prefix": ["mainfunction"],
-		"body": [
-			"function $TM_FILENAME_BASE:${0}()",
-			"",
-			"end"
-		],
-		"description": "Roblox Service"
-	},
 
 	//Knit
 	"Knit": {
