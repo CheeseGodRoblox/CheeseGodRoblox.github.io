@@ -134,15 +134,15 @@
 	},
 
 	//Moonwave
-	"Moonwave": {
-		"prefix": ["moonwave"],
+	"Moonwave Class": {
+		"prefix": ["moonclass"],
 		"body": [
 			"--[=[",
 			"\t@class ${0:$TM_FILENAME_BASE}",
 			"]=]",
 			""
 		],
-		"description": "Start moonwave comment syntax"
+		"description": "Start moonwave class comment syntax"
 	},
 	"Moonwave Method": {
 		"prefix": ["moonmethod"],
