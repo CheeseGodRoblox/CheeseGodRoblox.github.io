@@ -54,6 +54,15 @@
 		],
 		"description": "Create basic Module boiler plate"
 	},
+	"Roblox Function": {
+		"prefix": ["mainfunction"],
+		"body": [
+			"function $TM_FILENAME_BASE:${0}()",
+			"",
+			"end"
+		],
+		"description": "Roblox Service"
+	},
 
 	//Knit
 	"Knit": {
@@ -116,33 +125,17 @@
 		],
 		"description": "Knit Controller template"
 	},
-	"Knit Require": {
-		"prefix": ["knitrequire"],
-		"body": ["local ${1:Name} = require(Knit.${2:Util}.${1:Name})"],
-		"description": "Knit Require template"
-	},
-
-	//Roact
-	"Roact": {
-		"prefix": ["roact"],
-		"body": [
-			"--Services",
-			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
-			"local Roact = require(ReplicatedStorage.Roact)",
-		],
-		"description": "Define the Roact module and ReplicatedStorage"
-	},
 
 	//Moonwave
-	"Moonwave Class": {
-		"prefix": ["moonclass"],
+	"Moonwave": {
+		"prefix": ["moonwave"],
 		"body": [
 			"--[=[",
 			"\t@class ${0:$TM_FILENAME_BASE}",
 			"]=]",
 			""
 		],
-		"description": "Start moonwave class comment syntax"
+		"description": "Start moonwave comment syntax"
 	},
 	"Moonwave Method": {
 		"prefix": ["moonmethod"],
@@ -157,23 +150,16 @@
 		],
 		"description": "Start moonwave comment syntax"
 	},
-	"Moonwave Parameter": {
-		"prefix": ["moonparam"],
+	"Moonwave Property": {
+		"prefix": ["moonprop"],
 		"body": [
-			"@param $1 $2 -- $3"
+			"--[=[",
+			"@prop ${1:self.}$2 $3",
+			"@within $TM_FILENAME_BASE",
+			"]=]",
 		],
-		"description": "Start parameter syntax"
+		"description": "Start property syntax"
 	},
-	// "Moonwave Property": {
-	// 	"prefix": ["moonprop"],
-	// 	"body": [
-	// 		"--[=[",
-	// 		"@prop ${1:self.}$2 $3",
-	// 		"@within $TM_FILENAME_BASE",
-	// 		"]=]",
-	// 	],
-	// 	"description": "Start property syntax"
-	// },
 
 	//Combinations
 	"Main Service": {
@@ -191,7 +177,9 @@
 			"--Roblox Services",
 			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
 			"",
-			"local Knit = require(ReplicatedStorage.Packages.Knit)",
+			"--Modules",
+			"local Packages = ReplicatedStorage.Packages",
+			"local Knit = require(Packages.Knit)",
 			"",
 			"local $TM_FILENAME_BASE = Knit.CreateService {",
 			"\tName = \"$TM_FILENAME_BASE\",",
@@ -242,7 +230,9 @@
 			"--Roblox Services",
 			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
 			"",
-			"local Knit = require(ReplicatedStorage.Packages.Knit)",
+			"--Modules",
+			"local Packages = ReplicatedStorage.Packages",
+			"local Knit = require(Packages.Knit)",
 			"",
 			"local $TM_FILENAME_BASE = Knit.CreateController { Name = \"$TM_FILENAME_BASE\" }",
 			"",
